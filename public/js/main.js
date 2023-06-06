@@ -11,7 +11,8 @@ import {
     addSpinner, 
     displayError, 
     displayApiError, 
-    updateScreenReaderConfirmation
+    updateScreenReaderConfirmation,
+    updateDisplay
 } from "./domFunctions.js";
 
 import CurrentLocation from "./CurrentLocation.js";
@@ -216,5 +217,5 @@ const updateDataAndDisplayProperties = async (locationObj) => {
     //weather information including the forecast
     const weatherJson = await getWeatherFromCoords(locationObj);
     console.log(weatherJson);
-    //if(weatherJson) updateDisplay(weatherJson, locationObj);
+    if(weatherJson) updateDisplay(weatherJson, locationObj);
 }
