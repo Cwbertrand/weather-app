@@ -1,0 +1,1 @@
+A complete weather app using OpenWeatherMap API it integrated 5 days weather forcast and takes into conderation of accessibility. cool app for js beginners

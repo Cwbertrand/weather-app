@@ -14,6 +14,22 @@ export const getHomeLocation = () => {
     return localStorage.getItem('defaultWeatherLocation');
 }
 
+export const getWeatherFromCoords = async (locationObj) => {
+    const lat = locationObj.getLat();
+    const lon = locationObj.getLon();
+    const units = locationObj.getUnit();
+    const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&exclude
+    =minutely,hourly,alerts&units=${units}&appid=${API_WEATHER_KEY}`;
+    try{
+        //fetching the data from the api endpoint
+        const weatherStream = await fetch(url);
+        const weatherJson = await weatherStream.json();
+        return weatherJson;
+    }catch(e){
+        console.error(e.stack);
+    }
+}
+
 //creating the api object method
 export const getCoordsFromApi = async (entryText, units) => {
     //this are numbers
@@ -27,7 +43,6 @@ export const getCoordsFromApi = async (entryText, units) => {
     try{
         const dataStream = await fetch(encodeUrl);
         const jsonData = await dataStream.json();
-        console.log(jsonData);
         return jsonData;
     }catch(e){
         console.error(e.stack);

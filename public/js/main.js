@@ -1,6 +1,7 @@
 import { 
     setLocationObject, 
     getHomeLocation,
+    getWeatherFromCoords,
     getCoordsFromApi,
     cleanText 
 } from "./dataFunctions.js";
@@ -211,6 +212,9 @@ const submitNewLocation = async (event) => {
 //creating the update data and display properties method
 //the async() means its an asyncchronous function. it uses 'await()' keyword to pause the execution and awaits for asynchronous operations to complete
 const updateDataAndDisplayProperties = async (locationObj) => {
-    //const weatherJson = await getWeatherFromCoordss(locationObj);
+    
+    //weather information including the forecast
+    const weatherJson = await getWeatherFromCoords(locationObj);
+    console.log(weatherJson);
     //if(weatherJson) updateDisplay(weatherJson, locationObj);
 }

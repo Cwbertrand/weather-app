@@ -51,3 +51,16 @@ const updateWeatherLocationHeader = function(message) {
 export const updateScreenReaderConfirmation = function(message) {
     document.getElementById('confirmation').textContent = message;
 };
+
+export const updateDisplay = (weatherJson, locationObj) => {
+    fadeDisplay();
+}
+
+const fadeDisplay = function(){
+    const currentConditions = document.getElementById('currentForcast');
+    currentConditions.toggle('zero-vis');
+    currentConditions.toggle('fade-in');
+    const sixDays = document.getElementById('dailyForcast');
+    sixDays.toggle('zero-vis');
+    sixDays.toggle('fade-in');
+}
